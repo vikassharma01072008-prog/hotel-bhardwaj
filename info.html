@@ -332,13 +332,16 @@
     margin-top:4px;
   }
 
-  /* ============ WIFI CARDS ============ */
+  /* ============ WIFI CARDS (single-line layout) ============ */
   .wifi-card{
     background:rgba(8,18,41,0.5);
     border:1px solid rgba(212,180,106,0.14);
     border-radius:12px;
-    padding:14px 16px;
+    padding:14px 16px 14px 20px;
     margin-bottom:10px;
+    display:flex;
+    align-items:center;
+    gap:12px;
     position:relative;
     overflow:hidden;
   }
@@ -357,23 +360,12 @@
 
   .wifi-name{
     font-family:'Cormorant Garamond',serif;
-    font-size:17px;
+    font-size:16px;
     font-weight:600;
     color:var(--text);
     letter-spacing:0.4px;
-    margin-bottom:8px;
     line-height:1.25;
-    padding-left:10px;
-  }
-
-  .wifi-row{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
-    padding-left:10px;
-    padding-top:8px;
-    border-top:1px solid rgba(212,180,106,0.08);
+    flex-shrink:0;
   }
 
   .wifi-pass{
@@ -385,15 +377,7 @@
     word-break:break-all;
     min-width:0;
     flex:1;
-  }
-
-  .wifi-pass .label{
-    font-size:10px;
-    letter-spacing:1.2px;
-    text-transform:uppercase;
-    color:var(--gold-soft);
-    font-weight:700;
-    margin-right:6px;
+    text-align:right;
   }
 
   .copy-btn{
@@ -790,7 +774,7 @@
     .hero-sub{ font-size:14px; }
     .intercom-value{ font-size:60px; }
     .info-section{ padding:18px 18px; }
-    .wifi-name{ font-size:15px; }
+    .wifi-name{ font-size:14px; }
     .wifi-pass{ font-size:12px; }
     .contact-tile{ padding:14px 8px; font-size:10px; }
     .contact-tile svg{ width:22px; height:22px; }
@@ -892,28 +876,24 @@
 
       <div class="wifi-card">
         <div class="wifi-name">Reception</div>
-        <div class="wifi-row">
-          <div class="wifi-pass"><span class="label">Pass:</span><span id="pass1">123@45678</span></div>
-          <button class="copy-btn" data-copy="pass1" type="button" aria-label="Copy password">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-            </svg>
-          </button>
-        </div>
+        <div class="wifi-pass" id="pass1">123@45678</div>
+        <button class="copy-btn" data-copy="pass1" type="button" aria-label="Copy password">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+          </svg>
+        </button>
       </div>
 
       <div class="wifi-card">
         <div class="wifi-name">Lobby</div>
-        <div class="wifi-row">
-          <div class="wifi-pass"><span class="label">Pass:</span><span id="pass2">00010002</span></div>
-          <button class="copy-btn" data-copy="pass2" type="button" aria-label="Copy password">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-            </svg>
-          </button>
-        </div>
+        <div class="wifi-pass" id="pass2">00010002</div>
+        <button class="copy-btn" data-copy="pass2" type="button" aria-label="Copy password">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+          </svg>
+        </button>
       </div>
     </section>
 
