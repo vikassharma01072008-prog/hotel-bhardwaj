@@ -93,7 +93,6 @@
     z-index:1;
   }
 
-  /* ============ TOP BAR ============ */
   .topbar{
     position:sticky;
     top:0;
@@ -152,7 +151,6 @@
     margin-top:2px;
   }
 
-  /* ============ HERO ============ */
   .hero{
     padding:36px 20px 22px;
     text-align:center;
@@ -261,7 +259,6 @@
     opacity:0.75;
   }
 
-  /* ============ INFO WRAPPER ============ */
   .info-wrap{
     max-width:680px;
     margin:0 auto;
@@ -308,7 +305,6 @@
     flex-shrink:0;
   }
 
-  /* ============ INTERCOM ============ */
   .intercom-value{
     font-family:'Cormorant Garamond',serif;
     font-size:72px;
@@ -343,9 +339,6 @@
     border-radius:12px;
     padding:14px 16px;
     margin-bottom:10px;
-    display:flex;
-    align-items:center;
-    gap:14px;
     position:relative;
     overflow:hidden;
   }
@@ -362,32 +355,36 @@
     background:linear-gradient(180deg, var(--gold-bright), var(--gold-soft));
   }
 
-  .wifi-info{
-    flex:1;
-    min-width:0;
-  }
-
   .wifi-name{
     font-family:'Cormorant Garamond',serif;
-    font-size:16px;
+    font-size:17px;
     font-weight:600;
     color:var(--text);
     letter-spacing:0.4px;
-    margin-bottom:3px;
+    margin-bottom:8px;
     line-height:1.25;
-    word-break:break-word;
+    padding-left:10px;
+  }
+
+  .wifi-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    padding-left:10px;
+    padding-top:8px;
+    border-top:1px solid rgba(212,180,106,0.08);
   }
 
   .wifi-pass{
-    display:flex;
-    align-items:center;
-    gap:6px;
     font-family:'Inter',monospace;
-    font-size:13px;
+    font-size:14px;
     color:var(--gold-bright);
     font-weight:600;
     letter-spacing:0.8px;
     word-break:break-all;
+    min-width:0;
+    flex:1;
   }
 
   .wifi-pass .label{
@@ -396,7 +393,7 @@
     text-transform:uppercase;
     color:var(--gold-soft);
     font-weight:700;
-    flex-shrink:0;
+    margin-right:6px;
   }
 
   .copy-btn{
@@ -428,7 +425,6 @@
 
   .copy-btn svg{ width:16px; height:16px; stroke-width:2; }
 
-  /* ============ CONTACT GRID ============ */
   .contact-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -475,7 +471,6 @@
     gap:12px;
   }
 
-  /* ============ STAY TIMINGS ============ */
   .timing-row{
     display:flex;
     align-items:center;
@@ -513,7 +508,6 @@
     letter-spacing:0.5px;
   }
 
-  /* ============ NEARBY PLACES ============ */
   .nearby-list{
     display:flex;
     flex-direction:column;
@@ -562,7 +556,6 @@
     white-space:nowrap;
   }
 
-  /* ============ REVIEW / GOOGLE SECTION ============ */
   .review-card{
     text-align:center;
     padding:8px 0;
@@ -630,7 +623,6 @@
     stroke-width:2;
   }
 
-  /* ============ DIRECT TO OWNER ============ */
   .owner-card{
     display:flex;
     align-items:center;
@@ -701,7 +693,6 @@
 
   .owner-call svg{ width:18px; height:18px; stroke-width:2; }
 
-  /* ============ FOOTER ============ */
   .footer{
     text-align:center;
     padding:34px 20px 24px;
@@ -753,7 +744,6 @@
     opacity:1;
   }
 
-  /* ============ TOAST ============ */
   .toast{
     position:fixed;
     bottom:120px;
@@ -782,7 +772,6 @@
     visibility:visible;
   }
 
-  /* ============ ANIMATIONS ============ */
   @keyframes fadeInUp{
     from{ opacity:0; transform:translateY(16px); }
     to{ opacity:1; transform:translateY(0); }
@@ -793,7 +782,6 @@
     to{ opacity:1; transform:translateY(0); }
   }
 
-  /* ============ RESPONSIVE ============ */
   @media(max-width:380px){
     .hero-title{ font-size:42px; }
     .topbar-title{ font-size:15px; }
@@ -880,7 +868,6 @@
 
   <main class="info-wrap">
 
-    <!-- INTERCOM -->
     <section class="info-section">
       <div class="info-label">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
@@ -892,7 +879,6 @@
       <div class="intercom-hint">Dial 99 from your room phone for reception</div>
     </section>
 
-        <!-- WIFI -->
     <section class="info-section">
       <div class="info-label">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
@@ -905,46 +891,32 @@
       </div>
 
       <div class="wifi-card">
-        <div class="wifi-info">
-          <div class="wifi-name">Reception</div>
+        <div class="wifi-name">Reception</div>
+        <div class="wifi-row">
           <div class="wifi-pass"><span class="label">Pass:</span><span id="pass1">123@45678</span></div>
+          <button class="copy-btn" data-copy="pass1" type="button" aria-label="Copy password">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+          </button>
         </div>
-        <button class="copy-btn" data-copy="pass1" type="button" aria-label="Copy password">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-          </svg>
-        </button>
       </div>
 
       <div class="wifi-card">
-        <div class="wifi-info">
-          <div class="wifi-name">Lobby</div>
+        <div class="wifi-name">Lobby</div>
+        <div class="wifi-row">
           <div class="wifi-pass"><span class="label">Pass:</span><span id="pass2">00010002</span></div>
+          <button class="copy-btn" data-copy="pass2" type="button" aria-label="Copy password">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+          </button>
         </div>
-        <button class="copy-btn" data-copy="pass2" type="button" aria-label="Copy password">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-          </svg>
-        </button>
       </div>
     </section>
 
-      <div class="wifi-card">
-        <div class="wifi-info">
-          <div class="wifi-name">Hotel Bhardwaj Lobby</div>
-<div class="wifi-pass"><span class="label">Pass:</span><span id="pass2">00010002</span></div>
-        <button class="copy-btn" data-copy="pass2" type="button" aria-label="Copy password">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-          </svg>
-        </button>
-      </div>
-    </section>
-
-    <!-- GET IN TOUCH -->
     <section class="info-section">
       <div class="info-label">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
@@ -985,7 +957,6 @@
       </div>
     </section>
 
-    <!-- GOOGLE REVIEW -->
     <section class="info-section">
       <div class="info-label">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
@@ -1009,7 +980,6 @@
       </div>
     </section>
 
-    <!-- STAY TIMINGS -->
     <section class="info-section">
       <div class="info-label">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
@@ -1045,7 +1015,6 @@
       </div>
     </section>
 
-    <!-- NEARBY PLACES -->
     <section class="info-section">
       <div class="info-label">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
@@ -1066,7 +1035,6 @@
       </div>
     </section>
 
-    <!-- DIRECT TO OWNER -->
     <section class="info-section">
       <div class="info-label">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
